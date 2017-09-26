@@ -1,9 +1,9 @@
 sudo: required
 language: python
 python:
-  - "2.7"
-  - "3.5"
-  - "3.6"
+  - '2.7'
+  - '3.5'
+  - '3.6'
 
 before_install:
   - 'sudo useradd --no-create-home --no-user-group BottleUser'
@@ -11,7 +11,8 @@ before_install:
   - 'openssl req -new -x509 -days 365 -nodes -out cacert.pem -keyout privkey.pem -subj "/C=AA/ST=State/L=Location/O=IT/CN=bottle-ssl.com"'
 
 install:
-  - "pipenv install --dev"
+  - 'pip install pipenv'
+  - 'pipenv install --dev'
 
 script:
-  - "pipenv run pytest"
+  - 'pipenv run pytest'
