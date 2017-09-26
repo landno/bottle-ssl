@@ -12,7 +12,7 @@ before_install:
 
 install:
   - 'sudo pip install pipenv'
-  - 'sudo pipenv install --system --dev'
+  - 'pipenv lock -r 2>/dev/null | sudo pip install -U -r /dev/stdin' 
 
 script:
-  - 'sudo pipenv run pytest'
+  - 'pytest'
