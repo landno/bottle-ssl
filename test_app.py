@@ -4,6 +4,7 @@ from multiprocessing import Process
 import requests
 import time
 import urllib3
+import ssl
 
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -41,3 +42,6 @@ def test_whoami():
 
     who = s.get('https://localhost:8443/whoami', verify=False).json()
     assert who == { 'd': None }
+
+def test_create_default_context():
+   assert hasattr(ssl, 'create_default_context') 
