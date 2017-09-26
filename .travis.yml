@@ -12,7 +12,8 @@ before_install:
 
 install:
   - 'sudo pip install pipenv'
-  - 'pipenv lock -r 2>/dev/null | sudo pip install -U -r /dev/stdin' 
+  - 'pipenv install'
+  - 'pipenv lock -r 2>/dev/null | sudo -H pip install -U -r /dev/stdin' 
 
 script:
   - 'sudo python -m pytest'
